@@ -20,9 +20,9 @@ import org.firstinspires.ftc.teamcode.messages.ThreeDeadWheelInputsMessage;
 @Config
 public final class ThreeDeadWheelLocalizer implements Localizer {
     public static class Params {
-        public double par0YTicks = 7621.648406602197; // y position of the first parallel encoder (in tick units)
-        public double par1YTicks = -8766.775313172111; // y position of the second parallel encoder (in tick units)
-        public double perpXTicks = 9762.726407996312; // x position of the perpendicular encoder (in tick units)
+        public double par0YTicks =  8697.172138012997; //7621.648406602197; // y position of the first parallel encoder (in tick units)
+        public double par1YTicks = -8112.694519344192;//-8766.775313172111; // y position of the second parallel encoder (in tick units)
+        public double perpXTicks = -8534.982824203511;//9762.726407996312; // x position of the perpendicular encoder (in tick units)
     }
 
     public static Params PARAMS = new Params();
@@ -38,14 +38,15 @@ public final class ThreeDeadWheelLocalizer implements Localizer {
         // TODO: make sure your config has **motors** with these names (or change them)
         //   the encoders should be plugged into the slot matching the named motor
         //   see https://ftc-docs.firstinspires.org/en/latest/hardware_and_software_configuration/configuring/index.html
-        par0 = new OverflowEncoder(new RawEncoder(hardwareMap.get(DcMotorEx.class, "intakeWrist/yrWheel")));
-        par1 = new OverflowEncoder(new RawEncoder(hardwareMap.get(DcMotorEx.class, "outtakeWrist/ylWheel")));
-        perp = new OverflowEncoder(new RawEncoder(hardwareMap.get(DcMotorEx.class, "outtakeArm/xWheel")));
+        par1 = new OverflowEncoder(new RawEncoder(hardwareMap.get(DcMotorEx.class, "rightUpper/leftDeadWheel")));
+        perp = new OverflowEncoder(new RawEncoder(hardwareMap.get(DcMotorEx.class, "intakeExtend/perpDeadWheel")));
+        par0 = new OverflowEncoder(new RawEncoder(hardwareMap.get(DcMotorEx.class, "hang/rightDeadWheel")));
 
         // TODO: reverse encoder directions if needed
         //   par0.setDirection(DcMotorSimple.Direction.REVERSE);
-        par0.setDirection(DcMotorSimple.Direction.REVERSE);
-        par1.setDirection(DcMotorSimple.Direction.REVERSE);
+        //par0.setDirection(DcMotorSimple.Direction.REVERSE);
+       par1.setDirection(DcMotorSimple.Direction.REVERSE);
+        perp.setDirection(DcMotorSimple.Direction.REVERSE);
 
         this.inPerTick = inPerTick;
 
